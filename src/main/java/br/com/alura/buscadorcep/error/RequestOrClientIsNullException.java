@@ -1,7 +1,7 @@
 package br.com.alura.buscadorcep.error;
 
-public class RequesAndClientIsNull extends RuntimeException {
-  public RequesAndClientIsNull(String message) {
+public class RequestOrClientIsNullException extends RuntimeException {
+  public RequestOrClientIsNullException(String message) {
     super(message);
   }
 }

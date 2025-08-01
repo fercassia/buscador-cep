@@ -1,8 +1,8 @@
 package br.com.alura.buscadorcep.object;
 
-import br.com.alura.buscadorcep.model.EnderecoViaCep;
+import br.com.alura.buscadorcep.model.EnderecoViaCepModel;
 
-public class Endereco {
+public class EnderecoObject  implements Endereco {
   private String cep;
   private String logradouro;
   private String complemento;
@@ -10,12 +10,12 @@ public class Endereco {
   private String localidade;
   private String uf;
 
-  public Endereco (EnderecoViaCep viaCep) {
+  public EnderecoObject(EnderecoViaCepModel viaCep) {
     this.cep = viaCep.cep();
     this.uf = viaCep.uf();
     setLogradouro(viaCep.logradouro());
     setComplemento(viaCep.complemento());
-    setBairro(viaCep.complemento());
+    setBairro(viaCep.bairro());
     setLocalidade(viaCep.localidade());
   }
 
@@ -57,17 +57,5 @@ public class Endereco {
 
   public String getUf() {
     return uf;
-  }
-
-  @Override
-  public String toString() {
-    return "Endereco{" +
-        "cep='" + cep + '\'' +
-        ", logradouro='" + logradouro + '\'' +
-        ", complemento='" + complemento + '\'' +
-        ", bairro='" + bairro + '\'' +
-        ", localidade='" + localidade + '\'' +
-        ", uf='" + uf + '\'' +
-        '}';
   }
 }

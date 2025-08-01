@@ -9,7 +9,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-public abstract class ConfigRequest implements SettingHttp, Response {
+public abstract class RequestConfig implements SettingHttp, Response {
 
   private HttpClient client;
   private HttpRequest request;
