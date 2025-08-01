@@ -12,7 +12,7 @@ public class Main {
   public static void main(String[] args) throws IOException, InterruptedException {
     ViaCepRequest request = new ViaCepRequest(new Cep("30570080"));
     BuscaCepService retorno = new BuscaCepService(request);
-    var resultado = retorno.RetornaCep();
+    var resultado = retorno.retornaCep();
 
     System.out.println(resultado);
   }

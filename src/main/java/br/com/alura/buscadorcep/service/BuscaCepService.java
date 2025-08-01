@@ -1,6 +1,5 @@
 package br.com.alura.buscadorcep.service;
 
-
 import br.com.alura.buscadorcep.config.Response;
 import br.com.alura.buscadorcep.model.EnderecoViaCepModel;
 import br.com.alura.buscadorcep.object.EnderecoObject;
@@ -11,18 +10,18 @@ import java.io.IOException;
 
 public class BuscaCepService {
 
-  private Response response;
+  private final Response response;
 
   public BuscaCepService(Response response){
     this.response = response;
   }
 
-  private EnderecoViaCepModel BuscarCep() throws IOException, InterruptedException {
+  private EnderecoViaCepModel buscarCep() throws IOException, InterruptedException {
     return response.getResponse(EnderecoViaCepModel.class);
   }
   
-  public String RetornaCep() throws IOException, InterruptedException {
-    EnderecoObject enderecoObject = new EnderecoObject(BuscarCep());
+  public String retornaCep() throws IOException, InterruptedException {
+    EnderecoObject enderecoObject = new EnderecoObject(buscarCep());
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(enderecoObject);
   }
