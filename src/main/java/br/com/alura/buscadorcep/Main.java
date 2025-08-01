@@ -10,7 +10,7 @@ import java.io.IOException;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
   public static void main(String[] args) throws IOException, InterruptedException {
-    ViaCepRequest request = new ViaCepRequest(new Cep("30570080"));
+    ViaCepRequest request = new ViaCepRequest(new Cep("39200000"));
     BuscaCepService retorno = new BuscaCepService(request);
     var resultado = retorno.retornaCep();
 
