@@ -1,24 +1,28 @@
 package br.com.alura.buscadorcep.service;
 
-
-import br.com.alura.buscadorcep.config.ConfigRequest;
 import br.com.alura.buscadorcep.config.Response;
-import br.com.alura.buscadorcep.config.SettingHttp;
-import br.com.alura.buscadorcep.model.EnderecoViaCep;
-import br.com.alura.buscadorcep.validation.Cep;
+import br.com.alura.buscadorcep.model.EnderecoViaCepModel;
+import br.com.alura.buscadorcep.object.EnderecoObject;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.io.IOException;
-import java.net.URI;
 
-public class BuscaCep {
+public class BuscaCepService {
 
-  private Response response;
+  private final Response response;
 
-  public  BuscaCep(Response response){
+  public BuscaCepService(Response response){
     this.response = response;
   }
 
-  public EnderecoViaCep BuscarCep() throws IOException, InterruptedException {
-    return response.getResponse(EnderecoViaCep.class);
+  private EnderecoViaCepModel buscarCep() throws IOException, InterruptedException {
+    return response.getResponse(EnderecoViaCepModel.class);
+  }
+  
+  public String retornaCep() throws IOException, InterruptedException {
+    EnderecoObject enderecoObject = new EnderecoObject(buscarCep());
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(enderecoObject);
   }
 }

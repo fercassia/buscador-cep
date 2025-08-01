@@ -1,4 +1,7 @@
 package br.com.alura.buscadorcep.config;
 
-public interface getResponse {
+import java.io.IOException;
+
+public interface Response {
+ <T> T getResponse(Class<T> clazz) throws IOException, InterruptedException;
 }
