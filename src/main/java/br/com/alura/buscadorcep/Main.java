@@ -6,14 +6,15 @@ import br.com.alura.buscadorcep.validation.Cep;
 
 import java.io.IOException;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
   public static void main(String[] args) throws IOException, InterruptedException {
-    ViaCepRequest request = new ViaCepRequest(new Cep("39200000"));
-    BuscaCepService retorno = new BuscaCepService(request);
-    var resultado = retorno.retornaCep();
+    String cepInput = "39200000";
 
-    System.out.println(resultado);
+    ViaCepRequest request = new ViaCepRequest(new Cep(cepInput));
+    BuscaCepService retorno = new BuscaCepService(request);
+
+    String resultant = retorno.retornaCep();
+
+    System.out.println(resultant);
   }
 }
